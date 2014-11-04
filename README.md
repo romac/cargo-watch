@@ -22,7 +22,9 @@ Requirements:
 
 2. Copy `cargo-watch` somewhere in your `$PATH`. Eg. `$ cp cargo-watch ~/.bin/cargo-watch`
 
-3. Then call the `watch` command as a normal `cargo` command. Eg. `$ cargo watch test`
+3. Make it executable. Eg. `$ chmod +x ~/.bin/cargo-watch`
+
+4. Then call the `watch` command as a normal `cargo` command. Eg. `$ cargo watch test`
 
 ## License
 
