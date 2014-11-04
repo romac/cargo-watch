@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+
+set -e
+
+usage() {
+  echo "Run a Cargo command (defaults to \`run\`) everytime a source file changes."
+  echo ""
+  echo "Usage:"
+  echo "    cargo watch [options] [<command>]"
+  echo ""
+  echo "Options:"
+  echo "    -h        Display this message."
+  echo "    -d DIR    Watch files in the given directory [default: src/]."
+  echo ""
+  echo "Requirements:"
+  echo "    This command requires fswatch to be present on your system."
+  echo "    Use your favorite package manager to install it (MacPorts, Homebrew, apt, etc)."
+}
+
+parse_opts() {
+  shift
+  while :; do
+    case $1 in
+      -h|--help)
+        usage
+        exit
+        ;;
+
+      -d|--dir)
+        if [ "$2" ]; then
+          dir="$2"
+          shift 2
+          continue
+        else
+          echo "Error: Must specify a non-empty '--file' argument" >&2
+          exit 1
+        fi
+        ;;
+
+      --dir=?*)
+        dir="${1#*=}"
+        ;;
+
+      *)
+        break
+    esac
+
+    shift
+  done
+
+  if [ "$1" ]; then
+    cmd="$1"
+    shift
+  fi
+}
+
+check_dir() {
+  if [ ! -d "$1" ]; then
+    echo "Error: '$1' is not a directory or doesn't exists." >&2
+    exit 1
+  fi
+}
+
+check_fswatch() {
+  if ! command -v fswatch >/dev/null 2>&1; then
+    echo "Error: cargo watch requires fswatch to be present on your system." >&2
+    exit 1
+  fi
+}
+
+main() {
+  dir="src/"
+  cmd="run"
+  parse_opts "$@"
+  check_dir "$dir"
+  check_fswatch
+  fswatch -o "$dir" | xargs -n1 -I{} cargo "$cmd"
+}
+
+main "$@"
