@@ -1,9 +1,11 @@
 
 # cargo-watch
 
-```
 Run a Cargo command (defaults to `run`) everytime a source file changes.
 
+Should work on any POSIX environment where [`fswatch`](https://github.com/emcrisostomo/fswatch) is available.
+
+```
 Usage:
     cargo watch [options] [<command>]
 
@@ -25,6 +27,10 @@ Requirements:
 3. Make it executable. Eg. `$ chmod +x ~/.bin/cargo-watch`
 
 4. Then call the `watch` command as a normal `cargo` command. Eg. `$ cargo watch test`
+
+## TODO
+
+Reach feature-parity with https://github.com/passcod/cargo-watch.
 
 ## License
 
