@@ -3,7 +3,13 @@
 
 Run a Cargo command (defaults to `run`) everytime a source file changes.
 
-Should work on any POSIX environment where [`fswatch`](https://github.com/emcrisostomo/fswatch) is available.
+This should work on any POSIX environment where [`fswatch`](https://github.com/emcrisostomo/fswatch) is available.
+
+I quickly threw this together because [passcod/cargo-watch](https://github.com/passcod/cargo-watch) doesn't support Mac OS X, and I was tired of running `cargo build` by hand everytime I updated a source file.
+
+The plan is not to improve this script, but to add support for FSEvents to [passcod/cargo-watch](https://github.com/passcod/cargo-watch) and then deprecate this project.
+
+## Usage
 
 ```
 Usage:
@@ -30,7 +36,8 @@ Requirements:
 
 ## TODO
 
-Reach feature-parity with https://github.com/passcod/cargo-watch.
+- <del>Reach feature-parity with https://github.com/passcod/cargo-watch.</del>
+- Add support for FSEvents to [passcod/cargo-watch](https://github.com/passcod/cargo-watch) and deprecate this project.
 
 ## License
 
