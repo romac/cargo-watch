@@ -19,6 +19,7 @@ usage() {
 
 parse_opts() {
   shift
+  shift
   while :; do
     case $1 in
       -h|--help)
