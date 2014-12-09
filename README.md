@@ -1,13 +1,13 @@
 
 # cargo-watch
 
-Run a Cargo command (defaults to `run`) everytime a source file changes.
+> Run a Cargo command (defaults to `run`) everytime a source file changes.
 
 This should work on any POSIX environment where [`fswatch`](https://github.com/emcrisostomo/fswatch) is available.
 
 I quickly threw this together because [passcod/cargo-watch](https://github.com/passcod/cargo-watch) doesn't support Mac OS X, and I was tired of running `cargo build` by hand everytime I updated a source file.
 
-The plan is not to improve this script, but to add support for FSEvents to [passcod/cargo-watch](https://github.com/passcod/cargo-watch) and then deprecate this project.
+The plan is not to improve this script, but to add support for libuv to [passcod/cargo-watch](https://github.com/passcod/cargo-watch) and then deprecate this project.
 
 ## Usage
 
@@ -33,11 +33,6 @@ Requirements:
 3. Make it executable. Eg. `$ chmod +x ~/.bin/cargo-watch`
 
 4. Then call the `watch` command as a normal `cargo` command. Eg. `$ cargo watch test`
-
-## TODO
-
-- <del>Reach feature-parity with https://github.com/passcod/cargo-watch.</del>
-- Add support for FSEvents to [passcod/cargo-watch](https://github.com/passcod/cargo-watch) and deprecate this project.
 
 ## License
 
