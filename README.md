@@ -7,7 +7,7 @@ This should work on any POSIX environment where [`fswatch`](https://github.com/e
 
 I quickly threw this together because [passcod/cargo-watch](https://github.com/passcod/cargo-watch) doesn't support Mac OS X, and I was tired of running `cargo build` by hand everytime I updated a source file.
 
-The plan is not to improve this script, but to add support for libuv to [passcod/cargo-watch](https://github.com/passcod/cargo-watch) and then deprecate this project.
+**Update: @passcod's [cargo-watch](https://github.com/passcod/cargo-watch) now supports Mac OS X thanks to his [notify](https://github.com/passcod/rsnotify) library. This project is now considered deprecated.**
 
 ## Usage
 
